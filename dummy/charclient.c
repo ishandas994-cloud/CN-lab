@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
@@ -18,24 +19,31 @@ int main()
         return 1;
     }
 
-    if (bind(sockfd, (struct sockaddr *)&server, sizeof(server)) == -1) {
-        printf("Bind error\n");
+    char buffer[100];
+    char result[100];
+
+    printf("Enter message: ");
+    fgets(buffer, sizeof(buffer), stdin);
+
+    if (sendto(sockfd, buffer, strlen(buffer), 0,
+               (struct sockaddr *)&server, sizeof(server)) == -1) {
+        printf("Sending error\n");
         return 1;
     }
 
-    char buffer[100];
-    struct sockaddr_in client;
-    socklen_t len = sizeof(client);
+    printf("Message sent successfully\n");
 
-    int n = recvfrom(sockfd, buffer, sizeof(buffer) - 1, 0,
-                     (struct sockaddr *)&client, &len);
+    int n = recvfrom(sockfd, result, sizeof(result) - 1, 0,
+                     NULL, NULL);
 
     if (n == -1) {
         printf("Receive error\n");
         return 1;
     }
-    buffer[n] = '\0';
-    printf("Message received: %s\n", buffer);
+
+    result[n] = '\0';
+
+    printf("\n%s\n", result);
 
     close(sockfd);
     return 0;
