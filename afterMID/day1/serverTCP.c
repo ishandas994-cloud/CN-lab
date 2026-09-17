@@ -48,7 +48,6 @@ int main()
     memset(buffer, 0, sizeof(buffer));
 
     recv(client_fd, buffer, sizeof(buffer) - 1, 0);
-
     printf("From Client 1: %s", buffer);
 
     close(client_fd);
@@ -70,6 +69,23 @@ int main()
     printf("From Client 2: %s", buffer);
 
     close(client_fd);
+    //client3
+    // client_fd = accept(server_fd, (struct sockaddr *)&client_addr,
+    //                    &addr_size);
+
+    // if (client_fd == -1)
+    // {
+    //     perror("Accept failed");
+    //     return 1;
+    // }
+
+    // memset(buffer, 0, sizeof(buffer));
+
+    // recv(client_fd, buffer, sizeof(buffer) - 1, 0);
+
+    // printf("From Client 3: %s", buffer);
+
+    // close(client_fd);
 
     close(server_fd);
 
