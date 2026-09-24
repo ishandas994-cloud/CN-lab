@@ -8,7 +8,7 @@ int main()
 {
     int server_fd, client_fd;
     char buffer[1024];
-
+ 
     struct sockaddr_in server_addr, client_addr;
     socklen_t addr_size = sizeof(client_addr);
 

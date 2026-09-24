@@ -1,0 +1,9 @@
+1.create a sequestial chat server where the server surveing multiple chat client but one at a time .when the server receive a bye message form a particular time it termianls the respestive connection 
+2.write a connection oriented program using command line argument do the file tranfer from the server as follows 1st:serverf first send the list of files present in thr current directory at its own end 
+2nd:after receiving the same client send the name of the file it wants do download from the server 
+3rd:finally after receiving the same the server uploads the file to the client 
+4th:after sebding the file the servere closes the clinet connection at its end
+
+
+
+cisco packet tracer version 7.3  or 8.1 

@@ -24,7 +24,7 @@ int main() {
 
     bind(server_fd, (struct sockaddr*)&server_addr, sizeof(server_addr));
 
-    listen(server_fd, 2);
+    listen(server_fd, 1);
 
     printf("Server waiting for client...\n");
 
